@@ -5,11 +5,13 @@ import './index.css'
 import Greeting from './Greeting.jsx'
 import Movies from './Movies.jsx'
 import Colors from './Colors.jsx'
+import Person from './Person.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Greeting />
     <Movies />
     <Colors />
+    <Person />
   </StrictMode>,
 )
