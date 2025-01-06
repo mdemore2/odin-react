@@ -4,10 +4,12 @@ import './index.css'
 //import App from './App.jsx'
 import Greeting from './Greeting.jsx'
 import Movies from './Movies.jsx'
+import Colors from './Colors.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Greeting />
     <Movies />
+    <Colors />
   </StrictMode>,
 )
