@@ -1,15 +1,15 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-//import App from './App.jsx'
-import Greeting from './Greeting.jsx'
-import Movies from './Movies.jsx'
-import Colors from './Colors.jsx'
-import Person from './Person.jsx'
-import ClassInput from './ClassInput.jsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import App from "./App";
+import Profile from "./components/Profile";
+import ErrorPage from "./components/ErrorPage";
+import routes from "./routes";
 
-createRoot(document.getElementById('root')).render(
+const router = createBrowserRouter(routes);
+
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <ClassInput />
+    <RouterProvider router={router} />
   </StrictMode>,
-)
+);
