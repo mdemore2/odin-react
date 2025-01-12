@@ -14,6 +14,7 @@ class ClassInput extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
   }
 
   handleInputChange(e) {
@@ -44,6 +45,14 @@ class ClassInput extends Component {
     }))
   }
 
+  handleEdit(e) {
+    this.setState((state) => ({
+        todos: state.todos.filter(item => item != e.target.id),
+        inputVal: e.target.id,
+        count: state.todos.length - 1,
+    }))
+  }
+
   render() {
     return (
       <section>
@@ -67,6 +76,7 @@ class ClassInput extends Component {
           {this.state.todos.map((todo) => (
             <li key={todo}>{todo}
                 <button key={todo} id={todo} onClick={this.handleDelete}>Delete</button>
+                <button key={todo} id={todo} onClick={this.handleEdit}>Edit</button>
             </li>
           ))}
         </ul>
