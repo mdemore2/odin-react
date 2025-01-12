@@ -8,6 +8,7 @@ class ClassInput extends Component {
     this.state = {
       todos: ['Just some demo tasks', 'As an example'],
       inputVal: '',
+      count: 2,
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -19,6 +20,8 @@ class ClassInput extends Component {
     this.setState((state) => ({
       ...state,
       inputVal: e.target.value,
+      count: state.todos.length,
+
     }));
   }
 
@@ -27,13 +30,17 @@ class ClassInput extends Component {
     this.setState((state) => ({
       todos: state.todos.concat(state.inputVal),
       inputVal: '',
+      count: state.todos.length + 1,
+
     }));
   }
   
   handleDelete(e) {
     this.setState((state) => ({
         todos: state.todos.filter(item => item != e.target.id),
-        inputVal: state.inputVal
+        inputVal: state.inputVal,
+        count: state.todos.length - 1,
+
     }))
   }
 
@@ -63,6 +70,7 @@ class ClassInput extends Component {
             </li>
           ))}
         </ul>
+        <h5>Count:{this.state.count}</h5>
       </section>
     );
   }
